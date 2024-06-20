@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -54,7 +53,10 @@ ROOT_URLCONF = 'carletonWebsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates', # Project level
+            BASE_DIR / 'base' / 'templates' # App level 
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
