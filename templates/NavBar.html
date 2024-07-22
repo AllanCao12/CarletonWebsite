@@ -1,31 +1,37 @@
-<div>
+{% load static %}
 
 <style>
     .nav {
-        overflow: hidden;
-        background-color: gray;
+        display: flex;
+        align-items: center;
+        background-color: white;
+        padding: 10px;
     }
-    
+
     .nav a {
-        float: left;
-        padding: 14px 16px;
+        text-decoration: none;
+        color: #7CB9E8;
+        margin-right: 25px;
+    }
+
+    .logo {
+        height: 80px; 
+        width: auto;
+        margin-right: 0px;
     }
 </style> 
 
 <div class="nav" overflow="hidden">
     <a href="/">
-        <h4>LOGO</h4>
+        <img src="{% static 'images/Carleton-logo.jpg'%}" alt="logo", class="logo">
     </a>
-    <a href="/">
-        <h4>SCHOLOARSHIPS</h4>
+    <a href="/clubEvents">
+        <h4>CLUBS &amp; EVENTS</h4>
     </a>
-    <a href="/">
-        <h4>COMMUNITY</h4>
+    <a href="/major">
+        <h4>MAJOR</h4>
     </a>
-    <a href="/">
-        <h4>COURSES</h4>
-    </a>
-    <a href="/">
+    <a href="/tips">
         <h4>TIPS</h4>
     </a>
 </div>

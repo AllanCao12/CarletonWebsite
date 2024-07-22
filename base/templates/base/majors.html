@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1> MAJORS </h1>
+<h2> Which of the following is your Major? IF you don't see your major email us and we'll hopefully add it soon! <h2>
+<div>
+    <p>
+        {% for major in Majors %}
+            <div>
+                <a href="{% url "majorAdvice" major.name %}">{{major.name}}</a>
+            </div>
+        {% endfor %}
+    </p>
+</div>
+
+{% endblock content %}
