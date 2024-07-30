@@ -10,3 +10,13 @@ class Major(models.Model):
 
     def __str__(self):
         return self.name
+
+class Event(models.Model):
+    name = models.CharField(max_length=100, unique=False)
+    description = models.TextField()
+    clubName = models.CharField(max_length=100, unique=False, default="No Club")
+    location = models.CharField(max_length=100, unique=False, default="Carleton University")
+    date = models.DateField()
+    
+    def __str__(self):
+        return self.name

@@ -2,11 +2,23 @@
 
 {% block content %}
 
-<h1> Events </h1>
+<h1> Events! </h1>
+
+<a href="{% url 'createEvent' %}"> Create An Event For Your Club!</a>
+
 <h2> Below is a list of events from the various clubs at Carleton. Filter for the clubs that you may be interested in! <h2>
 <div>
     <p>
-    
+        {% for event in events %}
+        <div>
+            <h2>{{ event.name }}</h2>
+            <small>Club: {{ event.clubName }}</small><br>
+            <small>Location: {{event.location}}</small><br>
+            <small>Event Date: {{ event.date|date:"D, d M Y" }}</small>
+            <p>Description: {{ event.description }}</p>
+            <br>
+        </div>
+        {% endfor %}
     </p>
 </div>
 
