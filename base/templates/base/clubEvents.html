@@ -4,7 +4,9 @@
 
 <h1> Events! </h1>
 
+{% if request.user.is_authenticated %}
 <a href="{% url 'createEvent' %}"> Create An Event For Your Club!</a>
+{% endif %}
 
 <h2> Below is a list of events from the various clubs at Carleton. Filter for the clubs that you may be interested in! <h2>
 <div>

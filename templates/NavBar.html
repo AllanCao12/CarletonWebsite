@@ -19,26 +19,47 @@
         width: auto;
         margin-right: 0px;
     }
+
+    .auth-links {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .auth-links a {
+        text-decoration: none;
+        color: #7CB9E8;
+        margin-left: 25px;
+    }
+
+    .auth-links span {
+        text-decoration: none;
+        color: #7CB9E8;
+        margin-left: 5px;
+    }
 </style> 
 
 <div class="nav" overflow="hidden">
     <a href="/">
-        <img src="{% static 'images/Carleton-logo.jpg'%}" alt="logo", class="logo">
+        <img src="{% static 'images/Carleton-logo.jpg'%}" alt="logo" class="logo">
     </a>
-    <a href="/clubEvents">
-        <h4>CLUBS &amp; EVENTS</h4>
+    <a href="/club-events">
+        <h4>Clubs &amp; Events</h4>
     </a>
     <a href="/major">
-        <h4>MAJOR</h4>
+        <h4>Major</h4>
     </a>
-    <a href="/tips">
-        <h4>TIPS</h4>
+    <a href="/useful-links">
+        <h4>Useful Links</h4>
     </a>
-</div>
 
-{% if request.user.is_authenticated %}
-<p>Hello {{ request.user }}</p>
-<a href="{% url 'logout' %}">Logout</a>
-{% else %}
-<a href="{% url 'login' %}">Login</a>
-{% endif %}
+    <div class="auth-links">
+        {% if request.user.is_authenticated %}
+        <span>Hello</span>
+        <span style="text-transform:uppercase">{{ request.user }}</span>
+        <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </div>
+</div>

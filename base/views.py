@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.views.generic.detail import DetailView
 
 from .models import Major, Event
 from .forms import EventForm
@@ -23,9 +24,9 @@ def major(request):
     context = {"Majors": Majors}
     return render(request, 'base/majors.html', context)
 
-def tips(request):
+def usefulLinks(request):
     context = {}
-    return render(request, 'base/tips.html', context)
+    return render(request, 'base/usefulLinks.html', context)
 
 def createEvent(request):
     form = EventForm()
@@ -64,3 +65,10 @@ def loginPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('home')
+
+class MajorDetailView(DetailView):
+    model = Major # The model we want to use to fill out the template with
+    template_name = 'base/tips.html' # The template
+    context_object_name = 'major' # The name of the model we will use in the template to access the values
+    slug_field = 'slug' # The value in the model that we're looking for
+    slug_url_kwarg = 'slug' # The value in the url that we're comparing to the slug_field in the model to retrieve the correct model

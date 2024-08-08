@@ -2,6 +2,7 @@
 
 {% block content %}
 
+{% if request.user.is_authenticated %}
 <div>
     <form method="POST" action="">
         {% csrf_token %} 
@@ -9,4 +10,9 @@
         <input type="Submit" value="Submit">
     </form>
 </div>
+{% else %}
+<div>
+    <p> Please login to your club's account to make an event <p>
+</div>
+{% endif %}
 {% endblock content %}

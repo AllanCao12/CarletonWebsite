@@ -2,11 +2,13 @@
 
 {% block content %}
 
-<h2> Hello! After consulting with upper year students in your respective degree, this is the advice that they would like to give to you: <h2>
-<div>
-    <p>
-    
-    </p>
+<div class="{{ major.css_class }}">
+    <h2> Hello! After consulting with upper year students in your respective degree, this is the advice that they would like to give to you: <h2>
+    <h1>{{ major.name }}</h1>
+    <p>{{ major.description }}</p>
+    {% if major.authors %}
+      <small><strong>Authors:</strong> {{ major.authors }}</small>
+    {% endif %}
 </div>
 
 {% endblock content %}

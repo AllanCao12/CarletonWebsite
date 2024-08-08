@@ -7,6 +7,8 @@ class Major(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField()
     authors = models.CharField(max_length=100, null=True)
+    slug = models.SlugField(default="", null=True, unique=True)
+    css_class = models.CharField(max_length=100, null=True) # will include text like "computer-science" referenced in majors.css
 
     def __str__(self):
         return self.name
